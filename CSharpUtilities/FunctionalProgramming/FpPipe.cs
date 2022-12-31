@@ -92,6 +92,7 @@ public static partial class Fp
     #endregion Into Action
 
     #region Into (PipeForward) Func
+
     public static TResult Into<TLast, TResult>(this TLast last, Func<TLast, TResult> func)
     {
         return func(last);
@@ -255,14 +256,4 @@ public static partial class Fp
     }
     #endregion Back
 
-
-    static void Fooo()
-    {
-        var p = SomeVoid;
-
-        p.Partly(1, 2) (2);
-        3.Into(SomeVoid, 1, 2);
-    }
-
-    static void SomeVoid(int x, int y, int z) { }
 }
