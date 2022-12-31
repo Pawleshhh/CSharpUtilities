@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace CSharpUtilities.FunctionalProgramming;
+﻿namespace CSharpUtilities.FunctionalProgramming;
 
 public static partial class Fp
 {

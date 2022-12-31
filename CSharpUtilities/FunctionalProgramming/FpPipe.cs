@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace CSharpUtilities.FunctionalProgramming;
+﻿namespace CSharpUtilities.FunctionalProgramming;
 
 /// <summary>
 /// Implementation of F#-like pipe operators (|>) (<|).

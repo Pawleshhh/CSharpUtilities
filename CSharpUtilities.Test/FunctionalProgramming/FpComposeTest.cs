@@ -4,5 +4,4 @@ namespace CSharpUtilities.FunctionalProgramming.Test;
 
 internal class FpComposeTest
 {
-
 }
