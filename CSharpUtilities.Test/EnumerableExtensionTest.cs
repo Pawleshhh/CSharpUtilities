@@ -1,4 +1,6 @@
-﻿namespace CSharpUtilities.Test;
+﻿using CSharpUtilities.FunctionalProgramming;
+
+namespace CSharpUtilities.Test;
 
 internal class EnumerableExtensionTest
 {
@@ -18,6 +20,7 @@ internal class EnumerableExtensionTest
         IEnumerable<object> enumerable = Enumerable.Empty<object>();
 
         Assert.That(enumerable.IsNullOrEmpty(), Is.True);
+        
     }
 
     [Test]
