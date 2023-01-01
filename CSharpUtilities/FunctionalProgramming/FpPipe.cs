@@ -8,19 +8,19 @@ public static partial class Fp
 
     #region Into (PipeForward) Action
 
-    public static Action Into<TLast>(this TLast last, Action<TLast> action)
+    public static void Into<TLast>(this TLast last, Action<TLast> action)
     {
-        return () => action(last);
+        action(last);
     }
-    public static Action Into<T1, TLast, TResult>(this TLast last, Action<T1, TLast> action,
+    public static void Into<T1, TLast, TResult>(this TLast last, Action<T1, TLast> action,
         T1 t1)
     {
-        return () => action(t1, last);
+        action(t1, last);
     }
-    public static Action Into<T1, T2, TLast>(this TLast last, Action<T1, T2, TLast> action,
+    public static void Into<T1, T2, TLast>(this TLast last, Action<T1, T2, TLast> action,
         T1 t1, T2 t2)
     {
-        return () => action(t1, t2, last);
+        action(t1, t2, last);
     }
     public static void Into<T1, T2, T3, TLast>(this TLast last, Action<T1, T2, T3, TLast> action,
         T1 t1, T2 t2, T3 t3)
