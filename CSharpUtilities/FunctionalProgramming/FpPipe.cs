@@ -12,7 +12,7 @@ public static partial class Fp
     {
         action(last);
     }
-    public static void Into<T1, TLast, TResult>(this TLast last, Action<T1, TLast> action,
+    public static void Into<T1, TLast>(this TLast last, Action<T1, TLast> action,
         T1 t1)
     {
         action(t1, last);
