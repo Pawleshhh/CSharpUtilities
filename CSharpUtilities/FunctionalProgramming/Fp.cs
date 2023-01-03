@@ -11,4 +11,14 @@ public static partial class Fp
         return () => value;
     }
 
+    public static Func<T> BuildFunc<T>(this T param, Func<T, T> build)
+    {
+        return () => build(param);
+    }
+
+    public static Func<TTo> MapFunc<TFrom, TTo>(this TFrom param, Func<TFrom, TTo> build)
+    {
+        return () => build(param);
+    }
+
 }
