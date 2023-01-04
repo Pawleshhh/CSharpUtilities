@@ -47,9 +47,10 @@ public static class Array2D
 
     public static void ForEach<T>(this T[,] array2d, Action<T> action)
     {
-        for (int i = 0; i < array2d.GetLength(0); i++)
+        var (length1, length2) = array2d.GetLength();
+        for (int i = 0; i < length1; i++)
         {
-            for (int j = 0; j < array2d.GetLength(1); j++)
+            for (int j = 0; j < length2; j++)
             {
                 action(array2d[i, j]);
             }
@@ -58,9 +59,10 @@ public static class Array2D
 
     public static void Iterate<T>(this T[,] array2d, Action<int, int, T> action)
     {
-        for (int i = 0; i < array2d.GetLength(0); i++)
+        var (length1, length2) = array2d.GetLength();
+        for (int i = 0; i < length1; i++)
         {
-            for (int j = 0; j < array2d.GetLength(1); j++)
+            for (int j = 0; j < length2; j++)
             {
                 action(i, j, array2d[i, j]);
             }
@@ -69,10 +71,11 @@ public static class Array2D
 
     public static U[,] Select<T, U>(this T[,] array2d, Func<T, U> map)
     {
-        U[,] newArray2d = new U[array2d.GetLength(0), array2d.GetLength(1)];
-        for (int i = 0; i < newArray2d.GetLength(0); i++)
+        var (length1, length2) = array2d.GetLength();
+        U[,] newArray2d = new U[length1, length2];
+        for (int i = 0; i < length1; i++)
         {
-            for (int j = 0; j < newArray2d.GetLength(1); j++)
+            for (int j = 0; j < length2; j++)
             {
                 newArray2d[i, j] = map(array2d[i, j]);
             }
@@ -83,10 +86,11 @@ public static class Array2D
 
     public static U[,] Select<T, U>(this T[,] array2d, Func<int, int, T, U> map)
     {
-        U[,] newArray2d = new U[array2d.GetLength(0), array2d.GetLength(1)];
-        for (int i = 0; i < newArray2d.GetLength(0); i++)
+        var (length1, length2) = array2d.GetLength();
+        U[,] newArray2d = new U[length1, length2];
+        for (int i = 0; i < length1; i++)
         {
-            for (int j = 0; j < newArray2d.GetLength(1); j++)
+            for (int j = 0; j < length2; j++)
             {
                 newArray2d[i, j] = map(i, j, array2d[i, j]);
             }

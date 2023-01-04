@@ -55,11 +55,12 @@ public static class Array3D
 
     public static void ForEach<T>(this T[,,] array3d, Action<T> action)
     {
-        for (int i = 0; i < array3d.GetLength(0); i++)
+        var (length1, length2, length3) = array3d.GetLength();
+        for (int i = 0; i < length1; i++)
         {
-            for (int j = 0; j < array3d.GetLength(1); j++)
+            for (int j = 0; j < length2; j++)
             {
-                for (int k = 0; k < array3d.GetLength(2); k++)
+                for (int k = 0; k < length3; k++)
                 {
                     action(array3d[i, j, k]);
                 }
@@ -69,11 +70,12 @@ public static class Array3D
 
     public static void Iterate<T>(this T[,,] array3d, Action<int, int, int, T> action)
     {
-        for (int i = 0; i < array3d.GetLength(0); i++)
+        var (length1, length2, length3) = array3d.GetLength();
+        for (int i = 0; i < length1; i++)
         {
-            for (int j = 0; j < array3d.GetLength(1); j++)
+            for (int j = 0; j < length2; j++)
             {
-                for (int k = 0; k < array3d.GetLength(2); k++)
+                for (int k = 0; k < length3; k++)
                 {
                     action(i, j, k, array3d[i, j, k]);
                 }
@@ -83,12 +85,13 @@ public static class Array3D
 
     public static U[,,] Select<T, U>(this T[,,] array3d, Func<T, U> map)
     {
-        U[,,] newArray3d = new U[array3d.GetLength(0), array3d.GetLength(1), array3d.GetLength(2)];
-        for (int i = 0; i < newArray3d.GetLength(0); i++)
+        var (length1, length2, length3) = array3d.GetLength();
+        U[,,] newArray3d = new U[length1, length2, length3];
+        for (int i = 0; i < length1; i++)
         {
-            for (int j = 0; j < newArray3d.GetLength(1); j++)
+            for (int j = 0; j < length2; j++)
             {
-                for (int k = 0; k < array3d.GetLength(2); k++)
+                for (int k = 0; k < length3; k++)
                 {
                     newArray3d[i, j, k] = map(array3d[i, j, k]);
                 }
@@ -97,21 +100,21 @@ public static class Array3D
         return newArray3d;
     }
 
-
     public static U[,,] Select<T, U>(this T[,,] array3d, Func<int, int, int, T, U> map)
     {
-        U[,,] newarray3d = new U[array3d.GetLength(0), array3d.GetLength(1), array3d.GetLength(2)];
-        for (int i = 0; i < newarray3d.GetLength(0); i++)
+        var (length1, length2, length3) = array3d.GetLength();
+        U[,,] newArray3d = new U[length1, length2, length3];
+        for (int i = 0; i < length1; i++)
         {
-            for (int j = 0; j < newarray3d.GetLength(1); j++)
+            for (int j = 0; j < length2; j++)
             {
-                for (int k = 0; k < array3d.GetLength(2); k++)
+                for (int k = 0; k < length3; k++)
                 {
-                    newarray3d[i, j, k] = map(i, j, k, array3d[i, j, k]);
+                    newArray3d[i, j, k] = map(i, j, k, array3d[i, j, k]);
                 }
             }
         }
-        return newarray3d;
+        return newArray3d;
     }
 
 }
