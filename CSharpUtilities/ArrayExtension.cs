@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharpUtilities.FunctionalProgramming;
+using static CSharpUtilities.UtilsHelper;
 using System.Collections.ObjectModel;
 
 namespace CSharpUtilities;
@@ -143,6 +144,42 @@ public static partial class ArrayExtension
 
     public static int FindLastIndex<T>(this T[] array, int startIndex, int count, Predicate<T> match)
         => Array.FindLastIndex(array, startIndex, count, match);
+
+    public static bool TryIndexOf<T>(this T[] array, T value, out int index)
+        => TryGetIndexHelper(() => Array.IndexOf(array, value), out index);
+
+    public static bool TryIndexOf<T>(this T[] array, T value, int startIndex, out int index)
+        => TryGetIndexHelper(() => Array.IndexOf(array, value, startIndex), out index);
+
+    public static bool TryIndexOf<T>(this T[] array, T value, int startIndex, int count, out int index)
+        => TryGetIndexHelper(() => Array.IndexOf(array, value, startIndex, count), out index);
+
+    public static bool TryLastIndexOf<T>(this T[] array, T value, out int index)
+        => TryGetIndexHelper(() => Array.LastIndexOf(array, value), out index);
+
+    public static bool TryLastIndexOf<T>(this T[] array, T value, int startIndex, out int index)
+        => TryGetIndexHelper(() => Array.LastIndexOf(array, value, startIndex), out index);
+
+    public static bool TryLastIndexOf<T>(this T[] array, T value, int startIndex, int count, out int index)
+        => TryGetIndexHelper(() => Array.LastIndexOf(array, value, startIndex, count), out index);
+
+    public static bool TryFindIndex<T>(this T[] array, Predicate<T> match, out int index)
+        => TryGetIndexHelper(() => Array.FindIndex(array, match), out index);
+
+    public static bool TryFindIndex<T>(this T[] array, int startIndex, Predicate<T> match, out int index)
+        => TryGetIndexHelper(() => Array.FindIndex(array, startIndex, match), out index);
+
+    public static bool TryFindIndex<T>(this T[] array, int startIndex, int count, Predicate<T> match, out int index)
+        => TryGetIndexHelper(() => Array.FindIndex(array, startIndex, count, match), out index);
+
+    public static bool TryFindLastIndex<T>(this T[] array, Predicate<T> match, out int index)
+        => TryGetIndexHelper(() => Array.FindLastIndex(array, match), out index);
+
+    public static bool TryFindLastIndex<T>(this T[] array, int startIndex, Predicate<T> match, out int index)
+        => TryGetIndexHelper(() => Array.FindLastIndex(array, startIndex, match), out index);
+
+    public static bool TryFindLastIndex<T>(this T[] array, int startIndex, int count, Predicate<T> match, out int index)
+        => TryGetIndexHelper(() => Array.FindLastIndex(array, startIndex, count, match), out index);
 
     public static bool TrueForAll<T>(this T[] array, Predicate<T> match)
         => Array.TrueForAll(array, match);
