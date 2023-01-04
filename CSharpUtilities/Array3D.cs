@@ -24,16 +24,6 @@ public static class Array3D
     public static T[,,] CreateDefault<T>(int length1, int length2, int length3)
     {
         T[,,] array3d = new T[length1, length2, length3];
-        for (int i = 0; i < length1; i++)
-        {
-            for (int j = 0; j < length2; j++)
-            {
-                for (int k = 0; k < length3; k++)
-                {
-                    array3d[i, j, k] = default!;
-                }
-            }
-        }
         return array3d;
     }
 

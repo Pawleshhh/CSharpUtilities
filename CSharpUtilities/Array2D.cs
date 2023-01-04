@@ -22,13 +22,6 @@ public static class Array2D
     public static T[,] CreateDefault<T>(int length1, int length2)
     {
         T[,] array2d = new T[length1, length2];
-        for (int i = 0; i < length1; i++)
-        {
-            for (int j = 0; j < length2; j++)
-            {
-                array2d[i, j] = default!;
-            }
-        }
         return array2d;
     }
 
