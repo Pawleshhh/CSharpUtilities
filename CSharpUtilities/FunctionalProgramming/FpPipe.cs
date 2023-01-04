@@ -172,6 +172,85 @@ public static partial class Fp
     }
     #endregion Into
 
+    #region Into1 (PipeForward) Func
+
+    public static TResult Into1<TFirst, T1, TResult>(this TFirst first, Func<TFirst, T1, TResult> func,
+        T1 t1)
+    {
+        return func(first, t1);
+    }
+    public static TResult Into1<TFirst, T1, T2, TResult>(this TFirst first, Func<TFirst, T1, T2, TResult> func,
+        T1 t1, T2 t2)
+    {
+        return func(first, t1, t2);
+    }
+    public static TResult Into1<TFirst, T1, T2, T3, TResult>(this TFirst first, Func<TFirst, T1, T2, T3, TResult> func,
+        T1 t1, T2 t2, T3 t3)
+    {
+        return func(first, t1, t2, t3);
+    }
+    public static TResult Into1<TFirst, T1, T2, T3, T4, TResult>(this TFirst first, Func<TFirst, T1, T2, T3, T4, TResult> func,
+        T1 t1, T2 t2, T3 t3, T4 t4)
+    {
+        return func(first, t1, t2, t3, t4);
+    }
+    public static TResult Into1<TFirst, T1, T2, T3, T4, T5, TResult>(this TFirst first, Func<TFirst, T1, T2, T3, T4, T5, TResult> func,
+        T1 t1, T2 t2, T3 t3, T4 t4, T5 t5)
+    {
+        return func(first, t1, t2, t3, t4, t5);
+    }
+    public static TResult Into1<TFirst, T1, T2, T3, T4, T5, T6, TResult>(this TFirst first, Func<TFirst, T1, T2, T3, T4, T5, T6, TResult> func,
+        T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6)
+    {
+        return func(first, t1, t2, t3, t4, t5, t6);
+    }
+    public static TResult Into1<TFirst, T1, T2, T3, T4, T5, T6, T7, TResult>(this TFirst first, Func<TFirst, T1, T2, T3, T4, T5, T6, T7, TResult> func,
+        T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7)
+    {
+        return func(first, t1, t2, t3, t4, t5, t6, t7);
+    }
+    public static TResult Into1<TFirst, T1, T2, T3, T4, T5, T6, T7, T8, TResult>(this TFirst first, Func<TFirst, T1, T2, T3, T4, T5, T6, T7, T8, TResult> func,
+        T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8)
+    {
+        return func(first, t1, t2, t3, t4, t5, t6, t7, t8);
+    }
+    public static TResult Into1<TFirst, T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult>(this TFirst first, Func<TFirst, T1, T2, T3, T4, T5, T6, T7, T8, T9, TResult> func,
+        T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8, T9 t9)
+    {
+        return func(first, t1, t2, t3, t4, t5, t6, t7, t8, t9);
+    }
+    public static TResult Into1<TFirst, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, TResult>(this TFirst first, Func<TFirst, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, TResult> func,
+        T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8, T9 t9, T10 t10)
+    {
+        return func(first, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10);
+    }
+    public static TResult Into1<TFirst, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, TResult>(this TFirst first, Func<TFirst, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, TResult> func,
+        T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8, T9 t9, T10 t10, T11 t11)
+    {
+        return func(first, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11);
+    }
+    public static TResult Into1<TFirst, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult>(this TFirst first, Func<TFirst, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TResult> func,
+        T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8, T9 t9, T10 t10, T11 t11, T12 t12)
+    {
+        return func(first, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12);
+    }
+    public static TResult Into1<TFirst, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult>(this TFirst first, Func<TFirst, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TResult> func,
+        T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8, T9 t9, T10 t10, T11 t11, T12 t12, T13 t13)
+    {
+        return func(first, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13);
+    }
+    public static TResult Into1<TFirst, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, TResult>(this TFirst first, Func<TFirst, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, TResult> func,
+        T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8, T9 t9, T10 t10, T11 t11, T12 t12, T13 t13, T14 t14)
+    {
+        return func(first, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14);
+    }
+    public static TResult Into1<TFirst, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, TResult>(this TFirst first, Func<TFirst, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, TResult> func,
+        T1 t1, T2 t2, T3 t3, T4 t4, T5 t5, T6 t6, T7 t7, T8 t8, T9 t9, T10 t10, T11 t11, T12 t12, T13 t13, T14 t14, T15 t15)
+    {
+        return func(first, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15);
+    }
+    #endregion Into1
+
     #region Back (PipeBackward)
     public static TResult Back<TLast, TResult>(this Func<TLast, TResult> func, TLast last)
     {
