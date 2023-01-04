@@ -63,4 +63,10 @@ public static class StringExtension
     public static bool LastIndexOf(this string @string, string value, int startIndex, int count, StringComparison comparisonType, out int index)
         => TryGetIndexHelper(() => @string.LastIndexOf(value, startIndex, count, comparisonType), out index);
 
+    public static bool IsNullOrEmpty(this string? @string)
+        => string.IsNullOrEmpty(@string);
+
+    public static bool IsNullOrWhiteSpace(this string? @string)
+        => string.IsNullOrWhiteSpace(@string);
+
 }
