@@ -95,6 +95,23 @@ internal class EnumerableExtensionTest
         Assert.That(sum, Is.EqualTo(45));
     }
 
+    [TestCase(true)]
+    [TestCase(false)]
+    public void AllIterate_IterateThroughEnumerable_ReturnExpectedBool(bool expected)
+    {
+        int index = 0;
+        Func<int, int, bool> act = (n, i) =>
+        {
+            Assert.That(index++, Is.EqualTo(i));
+            return expected;
+        };
+        IEnumerable<int> enumerable = Enumerable.Range(0, 10);
+
+        var result = enumerable.AllIterate(act);
+
+        Assert.That(result, Is.EqualTo(expected));
+    }
+
     private static int Random() => new Random().Next();
     private static int Random(int c) => new Random().Next(c);
 

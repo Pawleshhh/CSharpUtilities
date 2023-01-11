@@ -27,4 +27,19 @@ public static class EnumerableExtension
         } while(enumerator.MoveNext());
     }
 
+    public static bool AllIterate<T>(this IEnumerable<T> enumerable, Func<T, int, bool> match)
+    {
+        var enumerator = enumerable.GetEnumerator();
+        int i = 0;
+        do
+        {
+            if (!match(enumerator.Current, i++))
+            {
+                return false;
+            }
+        } while (enumerator.MoveNext());
+
+        return true;
+    }
+
 }
