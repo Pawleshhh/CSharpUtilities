@@ -1,5 +1,4 @@
-﻿using CSharpUtilities.FunctionalProgramming;
-using static CSharpUtilities.UtilsHelper;
+﻿using static CSharpUtilities.UtilsHelper;
 using System.Collections.ObjectModel;
 
 namespace CSharpUtilities;
