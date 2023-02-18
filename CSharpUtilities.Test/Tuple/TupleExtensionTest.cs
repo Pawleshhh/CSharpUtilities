@@ -1,4 +1,10 @@
-﻿namespace CSharpUtilities.Test;
+﻿using Newtonsoft.Json.Linq;
+using NUnit.Framework.Internal;
+using System.Runtime.CompilerServices;
+using System;
+using System.Globalization;
+
+namespace CSharpUtilities.Test;
 
 [TestFixture]
 internal class TupleExtensionTest
@@ -160,6 +166,193 @@ internal class TupleExtensionTest
         // Act & Assert
         Assert.Throws<ArgumentException>(() => tuple.ToDictionary());
     }
+
+    #endregion
+
+    #region At
+
+    [Test]
+    public void At_Should_Return_Correct_Object_For_Tuple()
+    {
+        // Arrange
+        var tuple = Tuple.Create(1, "two", 3.0);
+
+        // Act
+        var result1 = tuple.At(0);
+        var result2 = tuple.At(1);
+        var result3 = tuple.At(2);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(result1, Is.EqualTo(1));
+            Assert.That(result2, Is.EqualTo("two"));
+            Assert.That(result3, Is.EqualTo(3.0));
+        });
+    }
+
+    [Test]
+    public void At_Should_Return_Correct_Generic_Type_For_Tuple()
+    {
+        // Arrange
+        var tuple = Tuple.Create(1, "two", 3.0);
+
+        // Act
+        var result1 = tuple.At<int>(0);
+        var result2 = tuple.At<string>(1);
+        var result3 = tuple.At<double>(2);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(result1, Is.EqualTo(1));
+            Assert.That(result2, Is.EqualTo("two"));
+            Assert.That(result3, Is.EqualTo(3.0));
+        });
+    }
+
+    #endregion
+
+    #region GetLength
+
+    [Test]
+    public void GetLength_Should_Return_Correct_Length_For_Tuple()
+    {
+        // Arrange
+        var tuple = Tuple.Create(1, "two", 3.0);
+
+        // Act
+        var result = tuple.GetLength();
+
+        // Assert
+        Assert.That(result, Is.EqualTo(3));
+    }
+
+    [Test]
+    public void GetLength_Should_Return_Correct_Length_For_ValueTuple()
+    {
+        // Arrange
+        var tuple = (1, "two", 3.0);
+
+        // Act
+        var result = tuple.GetLength();
+
+        // Assert
+        Assert.That(result, Is.EqualTo(3));
+    }
+
+    #endregion
+
+    #region Select
+
+    [Test]
+    public void Select_TupleOfTwoItems_ReturnsExpectedNewTuple()
+    {
+        // Arrange
+        var tuple = Tuple.Create(1, "two");
+
+        // Act
+        var result = tuple.Select((i, s) => (i + 1, s + "!"));
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(result.Item1, Is.EqualTo(2));
+            Assert.That(result.Item2, Is.EqualTo("two!"));
+        });
+    }
+
+    [Test]
+    public void Select_TupleOfThreeItems_ReturnsExpectedNewTuple()
+    {
+        // Arrange
+        var tuple = Tuple.Create(1, "two", 3.2);
+
+        // Act
+        var result = tuple.Select((i, s, d) => (i + 1, s + "!", d.ToString(CultureInfo.InvariantCulture)));
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(result.Item1, Is.EqualTo(2));
+            Assert.That(result.Item2, Is.EqualTo("two!"));
+            Assert.That(result.Item3, Is.EqualTo("3.2"));
+        });
+    }
+
+    [Test]
+    public void Select_TupleOfFourItems_ReturnsExpectedNewTuple()
+    {
+        // Arrange
+        var tuple = Tuple.Create(1, "two", 3.2, new int[] { 4, 5 });
+
+        // Act
+        var result = tuple.Select((i, s, d, a) => (i + 1, s + "!", d.ToString(CultureInfo.InvariantCulture), a.Sum()));
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(result.Item1, Is.EqualTo(2));
+            Assert.That(result.Item2, Is.EqualTo("two!"));
+            Assert.That(result.Item3, Is.EqualTo("3.2"));
+            Assert.That(result.Item4, Is.EqualTo(9));
+        });
+    }
+
+    [Test]
+    public void Select_ValueTupleOfTwoItems_ReturnsExpectedNewTuple()
+    {
+        // Arrange
+        var tuple = (1, "two");
+
+        // Act
+        var result = tuple.Select((i, s) => (i + 1, s + "!"));
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(result.Item1, Is.EqualTo(2));
+            Assert.That(result.Item2, Is.EqualTo("two!"));
+        });
+    }
+
+    [Test]
+    public void Select_ValueTupleOfThreeItems_ReturnsExpectedNewTuple()
+    {
+        // Arrange
+        var tuple = (1, "two", 3.2);
+
+        // Act
+        var result = tuple.Select((i, s, d) => (i + 1, s + "!", d.ToString(CultureInfo.InvariantCulture)));
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(result.Item1, Is.EqualTo(2));
+            Assert.That(result.Item2, Is.EqualTo("two!"));
+            Assert.That(result.Item3, Is.EqualTo("3.2"));
+        });
+    }
+
+    [Test]
+    public void Select_ValueTupleOfFourItems_ReturnsExpectedNewTuple()
+    {
+        // Arrange
+        var tuple = (1, "two", 3.2, new int[] { 4, 5 });
+
+        // Act
+        var result = tuple.Select((i, s, d, a) => (i + 1, s + "!", d.ToString(CultureInfo.InvariantCulture), a.Sum()));
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(result.Item1, Is.EqualTo(2));
+            Assert.That(result.Item2, Is.EqualTo("two!"));
+            Assert.That(result.Item3, Is.EqualTo("3.2"));
+            Assert.That(result.Item4, Is.EqualTo(9));
+        });
+    }
+
     #endregion
 
 }
