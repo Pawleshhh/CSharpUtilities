@@ -1,6 +1,4 @@
-﻿using CSharpUtilities.FunctionalProgramming;
-
-namespace CSharpUtilities.Test;
+﻿namespace CSharpUtilities.Test;
 
 internal class EnumerableExtensionTest
 {

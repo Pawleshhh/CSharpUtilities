@@ -1,4 +1,4 @@
-﻿using CSharpUtilities.FunctionalProgramming;
+﻿using FunctionalCSharp;
 using static CSharpUtilities.UtilsHelper;
 using System.Collections.ObjectModel;
 
